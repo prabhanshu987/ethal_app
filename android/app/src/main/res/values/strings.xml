@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ethal</string>
+    <string name="title_activity_main">ethal</string>
+    <string name="package_name">com.ethal.app</string>
+    <string name="custom_url_scheme">com.ethal.app</string>
+</resources>
