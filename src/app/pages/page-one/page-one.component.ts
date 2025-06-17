@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-one',
@@ -13,6 +14,8 @@ export class PageOneComponent {
   };
   submitted = false;
 
+  constructor(private router: Router) {} // Inject Router service
+
   isFormValid() {
     return this.formData.date && this.formData.supervisor && this.formData.shift && this.formData.crm;
   }
@@ -20,11 +23,13 @@ export class PageOneComponent {
   nextPage() {
     if (this.isFormValid()) {
       sessionStorage.setItem('pageOneData', JSON.stringify(this.formData));
-      window.location.href = '/page-two';
+      this.router.navigate(['/page-two']); // Use Angular Router for navigation
     } else {
       this.submitted = true;
     }
   }
-   history(){
-    window.location.href = '/history';  }
+
+  history() {
+    this.router.navigate(['/history']); // Use Angular Router for navigation
+  }
 }

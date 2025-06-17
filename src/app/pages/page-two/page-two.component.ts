@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-two',
@@ -23,7 +24,7 @@ export class PageTwoComponent {
   length = '';
   thickness = '';
   submitted = false;
-
+  constructor(private router: Router) {} 
   addRow() {
     if (!this.formData.initialThickness || !this.thickness) return;
     const reduction = (+this.formData.initialThickness - +this.thickness).toFixed(2);
@@ -50,13 +51,14 @@ export class PageTwoComponent {
       
       sessionStorage.setItem('pageTwoData', JSON.stringify(this.formData));
       sessionStorage.setItem('passScheduleData', JSON.stringify(this.rows));
-      window.location.href = '/page-three';
+    //  window.location.href = '/page-three';
+      this.router.navigate(['/page-three']);
     } else {
       this.submitted = true;
     }
   }
   back() {
-window.location.href = '/page-one';  }
+this.router.navigate(['/page-one']);;  }
 
 formatTwoDecimals(field: string) {
   if (this.formData[field]) {

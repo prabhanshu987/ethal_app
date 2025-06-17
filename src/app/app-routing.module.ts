@@ -4,6 +4,7 @@ import { PageOneComponent } from './pages/page-one/page-one.component';
 import { PageTwoComponent } from './pages/page-two/page-two.component';
 import { PageThreeComponent } from './pages/page-three/page-three.component';
 import { HistoryComponent } from './history/history.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'page-one', pathMatch: 'full' },
   { path: 'page-one', component: PageOneComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
